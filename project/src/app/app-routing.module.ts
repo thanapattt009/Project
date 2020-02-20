@@ -30,7 +30,15 @@ const routes: Routes = [
   {
     path: 'updateadmin',
     loadChildren: () => import('./updateadmin/updateadmin.module').then( m => m.UpdateadminPageModule)
+  },  {
+    path: 'registeruser',
+    loadChildren: () => import('./registeruser/registeruser.module').then( m => m.RegisteruserPageModule)
+  },
+  {
+    path: 'registeruserhead',
+    loadChildren: () => import('./registeruserhead/registeruserhead.module').then( m => m.RegisteruserheadPageModule)
   }
+
 ];
 
 @NgModule({
