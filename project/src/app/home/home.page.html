@@ -3,37 +3,25 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      Home
-    </ion-title>
+    <ion-title text-center padding>ระบบการจัดการผลิตผลทางการพยาบาล</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-
-  <ion-card text-center>
-
-
-    <ion-row>
-      <ion-col>
-        <ion-label>:: ID ::</ion-label>
-      </ion-col>
-      <ion-input placeholder="กรุณากรอกไอดี"></ion-input>
-
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <ion-label>:: PASSWORD ::</ion-label>
-      </ion-col>
-      <ion-input placeholder="กรุณากรอกพาสเวิร์ด"></ion-input>
-
-    </ion-row>
+<ion-content padding>
 
 
 
-    <ion-button routerLink="/dataadmin">ยืนยัน </ion-button>
-
+  <ion-card text-center color="light">
+    <ion-input padding placeholder="USERNAME"></ion-input>
   </ion-card>
+
+  <ion-card text-center color="light">
+    <ion-input padding placeholder="PASSWORD"></ion-input>
+  </ion-card>
+
+  <ion-title text-center>
+    <ion-button expand="small" color="light">login</ion-button>
+    <ion-button expand="small" color="light" routerLink="/home">home</ion-button>
+  </ion-title>
+
 </ion-content>

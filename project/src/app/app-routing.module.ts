@@ -32,13 +32,14 @@ const routes: Routes = [
     loadChildren: () => import('./updateadmin/updateadmin.module').then( m => m.UpdateadminPageModule)
   },
   {
-    path: 'updateuser',
-    loadChildren: () => import('./updateuser/updateuser.module').then( m => m.UpdateuserPageModule)
+    path: 'registeruser',
+    loadChildren: () => import('./registeruser/registeruser.module').then( m => m.RegisteruserPageModule)
   },
   {
-    path: 'updateuserhead',
-    loadChildren: () => import('./updateuserhead/updateuserhead.module').then( m => m.UpdateuserheadPageModule)
+    path: 'registeruserhead',
+    loadChildren: () => import('./registeruserhead/registeruserhead.module').then( m => m.RegisteruserheadPageModule)
   }
+
 ];
 
 @NgModule({

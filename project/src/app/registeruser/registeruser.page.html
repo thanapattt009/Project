@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>registeruser</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-card>
+    <ion-label position="floating">ID Student</ion-label>
+    <ion-input [(ngModel)]="id_user"></ion-input>
+
+    <ion-label position="floating">Insert name_student</ion-label>
+    <ion-input [(ngModel)]="username_user"></ion-input>
+
+    <ion-label position="floating">Insert type_status</ion-label>
+    <ion-input [(ngModel)]="password_user"></ion-input>
+
+    <ion-label position="floating">Insert gender</ion-label>
+    <ion-input [(ngModel)]="name_user"></ion-input>
+
+    <ion-label position="floating">Insert gender</ion-label>
+    <ion-input [(ngModel)]="email_user"></ion-input>
+
+    <ion-label position="floating">Insert gender</ion-label>
+    <ion-input [(ngModel)]="tel_user"></ion-input>
+
+    <ion-row>
+      <ion-col text-center>
+        <ion-button color="dark" (click)="addUser()">add</ion-button>
+        <ion-button color="danger" routerLink="/home">cancle</ion-button>
+      </ion-col>
+    </ion-row><br>
+  </ion-card>
+
+
+
+</ion-content>
