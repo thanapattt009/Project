@@ -22,12 +22,12 @@ function updateAdmin(){
     $Data = json_decode($_POST['_Data']);
     $IdAdmin = $Data->id_admin;
     $UsernameAdmin = $Data->usernameadmin;
-    $PasswordAdmin = $Data->passwordaddmin;
+    $PasswordAdmin = $Data->passwordadmin;
     $NameAdmin = $Data->nameadmin;
     $EmailAdmin = $Data->emailadmin;
     $TelAdmin = $Data->teladmin;
     $conn = getDB();    
-    $sql_query = "UPDATE admin_db set usernameadmin='$UsernameAdmin',passwordaddmin='$PasswordAdmin',nameadmin='$NameAdmin',emailadmin='$EmailAdmin',teladmin='$TelAdmin' WHERE id_admin='$IdAdmin'";
+    $sql_query = "UPDATE admin_db set usernameadmin='$UsernameAdmin',passwordadmin='$PasswordAdmin',nameadmin='$NameAdmin',emailadmin='$EmailAdmin',teladmin='$TelAdmin' WHERE id_admin='$IdAdmin'";
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->query($sql_query);
     echo '{"Finish":"update"}';
@@ -47,6 +47,19 @@ function addUser(){
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->query($sql_query);
     $Response_Data= $rst->fetchAll(PDO::FETCH_NUM);
+}
+
+function getByIdUser(){
+    $Data = json_decode($_POST['_Data']);
+    $IdUser = $Data->id_user;
+    $conn = getDB();    
+    $sql_query = "SELECT * from user where id_user='$IdUser'";
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->query($sql_query);
+    $rst = $conn->query($sql_query);
+    $Response_Data = $rst->fetchAll(PDO::FETCH_OBJ); 
+    $Response_Data = json_encode($Response_Data);
+    echo $Response_Data;      
 }
 
 function updateUser(){
@@ -77,6 +90,19 @@ function addUserHead(){
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->query($sql_query);
     $Response_Data= $rst->fetchAll(PDO::FETCH_NUM);
+}
+
+function getByIdUserHead(){
+    $Data = json_decode($_POST['_Data']);
+    $IdUserHead = $Data->id_head;
+    $conn = getDB();    
+    $sql_query = "SELECT * from userhead where id_head='$IdUserHead'";
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->query($sql_query);
+    $rst = $conn->query($sql_query);
+    $Response_Data = $rst->fetchAll(PDO::FETCH_OBJ); 
+    $Response_Data = json_encode($Response_Data);
+    echo $Response_Data;      
 }
 
 function updateUserHead(){

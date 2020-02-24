@@ -30,6 +30,14 @@ const routes: Routes = [
   {
     path: 'updateadmin',
     loadChildren: () => import('./updateadmin/updateadmin.module').then( m => m.UpdateadminPageModule)
+  },
+  {
+    path: 'updateuser',
+    loadChildren: () => import('./updateuser/updateuser.module').then( m => m.UpdateuserPageModule)
+  },
+  {
+    path: 'updateuserhead',
+    loadChildren: () => import('./updateuserhead/updateuserhead.module').then( m => m.UpdateuserheadPageModule)
   }
 ];
 

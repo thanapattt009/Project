@@ -3,47 +3,46 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
 
 @Component({
-  selector: 'app-updateadmin',
-  templateUrl: './updateadmin.page.html',
-  styleUrls: ['./updateadmin.page.scss'],
+  selector: 'app-updateuser',
+  templateUrl: './updateuser.page.html',
+  styleUrls: ['./updateuser.page.scss'],
 })
-export class UpdateadminPage implements OnInit {
-
+export class UpdateuserPage implements OnInit {
 
   id = {
-    'id_admin': null
+    'id_user': null
   };
   ans = {
-    'id_admin': "", 'usernameadmin': "", 'passwordadmin': "", 'nameadmin': "", 'emailadmin': "", 'teladmin': ""
+    'id_user': "", 'usernameuser': "", 'passworduser': "", 'nameadmin': "", 'emailadmin': "", 'teladmin': ""
   }
 
   constructor(public router: Router, public callapi: ApiService, public active: ActivatedRoute) { 
-    this.id.id_admin = this.active.snapshot.paramMap.get('_id');
+    this.id.id_user = this.active.snapshot.paramMap.get('_id');
     console.log(this.id);
-    this.getbyidAdmin();
+    this.getbyidUser();
   }
 
   ngOnInit() {
   }
 
-  getbyidAdmin() {
+  getbyidUser() {
     let dataFrom = new FormData();
     dataFrom.append("_Data", JSON.stringify(this.id));
-    dataFrom.append("Function_Name", "getByIdAdmin");
+    dataFrom.append("Function_Name", "getByIdUser");
     this.callapi.system_process_db(dataFrom).then((result) => {
       this.ans = result[0];
       console.log(this.ans);
     });
   }
 
-  updateAdmin(id) {
-    this.ans.id_admin = id;
+  updateUser(id) {
+    this.ans.id_user = id;
     console.log(this.ans);
     console.log(this.id);
 
     let dataFrom = new FormData();
     dataFrom.append("_Data", JSON.stringify(this.ans));
-    dataFrom.append("Function_Name", "updateAdmin");
+    dataFrom.append("Function_Name", "updateUser");
     // console.log(this.ans);
     this.callapi.system_process_db(dataFrom).then((result) => {
       console.log(result);
