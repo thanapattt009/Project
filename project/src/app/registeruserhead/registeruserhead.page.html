@@ -1,9 +1,84 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>registeruserhead</ion-title>
+    <ion-title>REGISTER USERHEAD</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-card text-center>
+
+    <!-- <ion-col>
+      <ion-label>ID USERHEAD</ion-label>
+      <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="id_userhead"></ion-input>
+    </ion-col> -->
+
+    <!-- <ion-col>
+      <ion-label>USERNAME</ion-label>
+      <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="usernamehead"></ion-input>
+    </ion-col>
+
+    <ion-col>
+      <ion-label>PASSWORD</ion-label>
+      <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="passwordhead"></ion-input>
+    </ion-col>
+
+    <ion-col>
+      <ion-label>NAME LAST NAME</ion-label>
+      <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="namehead"></ion-input>
+    </ion-col>
+
+    <ion-col>
+      <ion-label>EMAIL</ion-label>
+      <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="emailhead"></ion-input>
+    </ion-col>
+
+    <ion-col>
+      <ion-label>PHONE NUMBER</ion-label>
+      <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="telhead"></ion-input>
+    </ion-col>
+
+    <ion-col text-center>
+      <ion-button color="dark" (click)="addUserHead()">add</ion-button>
+      <ion-button color="danger" routerLink="/home">cancle</ion-button>
+    </ion-col>
+
+  </ion-card> -->
+
+
+    <ion-row>
+      <ion-col><label>USERNAME</label></ion-col>
+      <ion-col><label>PASSWORD</label></ion-col>
+      <ion-col><label>NAME</label></ion-col>
+      <ion-col><label>E-MAIL</label></ion-col>
+      <ion-col><label>PHONE NUMBER</label></ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="usernamehead"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="passwordhead"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="namehead"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="emailhead"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="telhead"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-col text-center>
+      <ion-button color="dark" (click)="addUserHead()">add</ion-button>
+      <ion-button color="danger" routerLink="/home">cancle</ion-button>
+    </ion-col>
+
+  </ion-card>
+
+
 
 </ion-content>

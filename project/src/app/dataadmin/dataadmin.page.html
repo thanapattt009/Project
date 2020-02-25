@@ -6,15 +6,31 @@
 
 <ion-content>
 
-  <ion-card text-center>
-  <ion-col>
-    <ion-button routerLink="/adduserhead">adduserhead </ion-button>
-  </ion-col><br>
+  <ion-card>
+    <ion-row>
+      <ion-col><label>ID</label></ion-col>
+      <ion-col><label>NAME</label></ion-col>
+      <ion-col><label>E-MAIL</label></ion-col>
+      <ion-col><label>PHONE NUMBER</label></ion-col>
+      <ion-col><label>EDIT</label></ion-col>
+      <ion-col><label>EDIT</label></ion-col>
+    </ion-row>
 
-  <ion-col>
-    <ion-button routerLink="/adduser">adduser </ion-button>
-  </ion-col><br>
+    <ion-row *ngFor='let data of listadmin'>
+      <ion-col><label>{{data.id_admin}}</label></ion-col>
+      <ion-col><label>{{data.nameadmin}}</label></ion-col>
+      <ion-col><label>{{data.emailadmin}}</label></ion-col>
+      <ion-col><label>{{data.teladmin}}</label></ion-col>
+      <ion-col>
+        <ion-button color="primary" (click)="getSutdentById(data.id_student)"></ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="danger" (click)="deleteidStudent(data.id_student)"></ion-button>
+      </ion-col>
 
- </ion-card>
+
+    </ion-row>
+
+  </ion-card>
 
 </ion-content>

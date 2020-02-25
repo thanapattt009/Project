@@ -9,11 +9,6 @@ import { ApiService } from '../api.service';
 })
 export class RegisteruserheadPage implements OnInit {
 
- 
-  constructor(public router: Router, public callapi: ApiService) { }
-
-  ngOnInit() {
-  }
   id_userhead: string;
   usernamehead: string;
   passwordhead: string;
@@ -22,7 +17,14 @@ export class RegisteruserheadPage implements OnInit {
   telhead: string;
 
   data = { "id_userhead": "", "usernamehead": "", "passwordhead": "", "namehead": "", "emailhead": "", "telhead": "" };
-  addUserHead() {
+ 
+
+ 
+  constructor(public router: Router, public callapi: ApiService) { }
+
+  ngOnInit() {
+  }
+   addUserHead() {
     this.data.id_userhead = this.id_userhead;
     this.data.usernamehead = this.usernamehead;
     this.data.passwordhead = this.passwordhead;

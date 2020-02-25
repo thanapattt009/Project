@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { ApiService } from '../api.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -8,5 +11,12 @@ import { Component } from '@angular/core';
 export class HomePage {
 
   constructor() {}
+
+
+  ngOnInit() {
+
+
+
+  }
 
 }
