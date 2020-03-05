@@ -21,15 +21,25 @@
       <ion-col><label>E-MAIL</label></ion-col>
       <ion-col><label>PHONE NUMBER</label></ion-col>
     </ion-row>
-    
+
     <ion-row>
-      <ion-col><ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="username_user"></ion-input></ion-col>
-      <ion-col> <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="password_user"></ion-input></ion-col>
-      <ion-col> <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="name_user"></ion-input></ion-col>
-      <ion-col><ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="email_user"></ion-input></ion-col>
-      <ion-col>      <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="tel_user"></ion-input></ion-col>
+      <ion-col>
+        <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="username_user"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="password_user"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="name_user"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="email_user"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="tel_user"></ion-input>
+      </ion-col>
     </ion-row>
-   
+
     <ion-col text-center>
       <ion-button color="dark" (click)="addUser()">add</ion-button>
       <ion-button color="danger" routerLink="/home">cancle</ion-button>

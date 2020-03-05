@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -18,10 +18,6 @@ const routes: Routes = [
   {
     path: 'adduser',
     loadChildren: () => import('./adduser/adduser.module').then( m => m.AdduserPageModule)
-  },
-  {
-    path: 'adduserhead',
-    loadChildren: () => import('./adduserhead/adduserhead.module').then( m => m.AdduserheadPageModule)
   },
   {
     path: 'dataadmin',
@@ -38,7 +34,22 @@ const routes: Routes = [
   {
     path: 'registeruserhead',
     loadChildren: () => import('./registeruserhead/registeruserhead.module').then( m => m.RegisteruserheadPageModule)
+  },
+  {
+    path: 'datauser',
+    loadChildren: () => import('./datauser/datauser.module').then( m => m.DatauserPageModule)
+  },
+  {
+    path: 'datauserhead',
+    loadChildren: () => import('./datauserhead/datauserhead.module').then( m => m.DatauserheadPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   }
+
+
+
 
 ];
 

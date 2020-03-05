@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>dataadmin</ion-title>
+    <ion-title>datauser</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,16 +15,15 @@
 
     </ion-row>
 
-    <ion-row *ngFor='let data of listadmin'>
-      <ion-col><label>{{data.id_admin}}</label></ion-col>
-      <ion-col><label>{{data.nameadmin}}</label></ion-col>
-      <ion-col><label>{{data.emailadmin}}</label></ion-col>
-      <ion-col><label>{{data.teladmin}}</label></ion-col>
+    <ion-row *ngFor='let data of listuser'>
+      <ion-col><label>{{data.id_user}}</label></ion-col>
+      <ion-col><label>{{data.name_user}}</label></ion-col>
+      <ion-col><label>{{data.email_user}}</label></ion-col>
+      <ion-col><label>{{data.tel_user}}</label></ion-col>
 
 
 
     </ion-row>
 
   </ion-card>
-
 </ion-content>
