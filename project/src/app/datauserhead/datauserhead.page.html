@@ -13,6 +13,7 @@
       <ion-col><label>NAME</label></ion-col>
       <ion-col><label>E-MAIL</label></ion-col>
       <ion-col><label>PHONE NUMBER</label></ion-col>
+      <ion-col><label>EDIT</label></ion-col>
 
     </ion-row>
 
@@ -22,7 +23,9 @@
       <ion-col><label>{{data.emailhead}}</label></ion-col>
       <ion-col><label>{{data.telhead}}</label></ion-col>
 
-
+      <ion-col>
+        <ion-button (click)="getidH(data.id_userhead)">Update </ion-button>
+    </ion-col>
 
     </ion-row>
 

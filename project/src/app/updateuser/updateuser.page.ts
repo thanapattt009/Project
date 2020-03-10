@@ -13,7 +13,7 @@ export class UpdateuserPage implements OnInit {
     'id_user': null
   };
   ans = {
-    'id_user': "", 'usernameuser': "", 'passworduser': "", 'nameadmin': "", 'emailadmin': "", 'teladmin': ""
+    'id_user': "", 'username_user': "", 'password_user': "", 'name_user': "", 'email_user': "", 'tel_user': ""
   }
 
   constructor(public router: Router, public callapi: ApiService, public active: ActivatedRoute) { 
@@ -23,6 +23,7 @@ export class UpdateuserPage implements OnInit {
   }
 
   ngOnInit() {
+    this.getbyidUser();
   }
 
   getbyidUser() {
@@ -46,7 +47,7 @@ export class UpdateuserPage implements OnInit {
     // console.log(this.ans);
     this.callapi.system_process_db(dataFrom).then((result) => {
       console.log(result);
-      this.router.navigate(['/home'])
+      this.router.navigate(['/datauser'])
     });
   }
 }

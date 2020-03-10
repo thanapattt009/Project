@@ -7,6 +7,8 @@ let apiUrl = "http://localhost:80/NewProject/Project/Database/";
 })
 export class ApiService {
 
+  public userId:string;
+
   constructor( public http:HttpClient) { }
 
 

@@ -15,7 +15,9 @@ export class DatauserheadPage implements OnInit {
   ngOnInit() {
     this.getUserHeadAll();
   }
-
+  getidH(id) {
+    this.router.navigate(['/updateuserhead', { _id: id }]);
+  }
   getUserHeadAll() {
     let dataFrom = new FormData();
     dataFrom.append("_Data", JSON.stringify(""));

@@ -5,5 +5,40 @@
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-label position="stacked"> ID</ion-label>
+    <ion-input type="text" fill="outline" disabled [(ngModel)]="ans.id_userhead"></ion-input>
+  </ion-item>
 
+  <ion-item>
+    <ion-label position="stacked">Username Admin</ion-label>
+    <ion-input type="text" fill="outline" [(ngModel)]="ans.usernamehead"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Password Admin</ion-label>
+    <ion-input type="text" fill="outline" [(ngModel)]="ans.passwordhead"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Name Admin</ion-label>
+    <ion-input type="text" fill="outline" [(ngModel)]="ans.namehead"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Email Admin</ion-label>
+    <ion-input type="text" fill="outline" [(ngModel)]="ans.emailhead"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Tel Amin</ion-label>
+    <ion-input type="text" fill="outline" [(ngModel)]="ans.telhead"></ion-input>
+  </ion-item>
+
+  
+
+  <ion-item>
+
+    <ion-button (click)="updateUserHead(ans.id_userhead)">Update</ion-button>
+
+  </ion-item>
 </ion-content>

@@ -79,7 +79,7 @@ function getUserHeadAll(){
 
 function getByIdAdmin(){
     $Data = json_decode($_POST['_Data']);
-    $IdAdmin = $Data->id_admin;
+    $IdAdmin = $Data;
     $conn = getDB();
     $sql_query = "SELECT * from admin_db where id_admin='$IdAdmin'";
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -128,7 +128,8 @@ function updateAdmin(){
     $EmailAdmin = $Data->emailadmin;
     $TelAdmin = $Data->teladmin;
     $conn = getDB();
-    $sql_query = "UPDATE admin_db set usernameadmin='$UsernameAdmin',passwordaddmin='$PasswordAdmin',nameadmin='$NameAdmin',emailadmin='$EmailAdmin',teladmin='$TelAdmin' WHERE id_admin='$IdAdmin'";
+   $sql_query ="UPDATE admin_db SET usernameadmin = '$UsernameAdmin', passwordadmin = '$PasswordAdmin', nameadmin= '$NameAdmin', emailadmin = '$EmailAdmin', teladmin = '$TelAdmin' WHERE admin_db.id_admin = $IdAdmin";
+    // $sql_query = "UPDATE admin_db set usernameadmin='$UsernameAdmin',passwordaddmin='$PasswordAdmin',nameadmin='$NameAdmin',emailadmin='$EmailAdmin',teladmin='$TelAdmin' WHERE id_admin='$IdAdmin'";
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->query($sql_query);
     echo '{"Finish":"update"}';
@@ -143,7 +144,7 @@ function updateUser(){
     $EmailUser = $Data->email_user;
     $TelUser = $Data->tel_user;
     $conn = getDB();
-    $sql_query = "UPDATE user set username_user='$UsernameUser',password_user='$PasswordUser',name_user='$NameUser',email_user='$EmailUser',telhead='$TelUser' WHERE id_user='$IdUser'";
+    $sql_query = "UPDATE user set username_user='$UsernameUser',password_user='$PasswordUser',name_user='$NameUser',email_user='$EmailUser',tel_user='$TelUser' WHERE id_user='$IdUser'";
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->query($sql_query);
     echo '{"Finish":"update"}';
@@ -185,6 +186,50 @@ function deleteUserHead(){
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->query($sql_query);
     echo '{"Finish":"delete"}';
+}
+////////////////////////////////////////////// 
+
+function checkloginadmin(){
+    $Data = json_decode($_POST['_Data']);
+    $UsernameAdmin = $Data->usernameadmin;
+    $PasswordAdmin = $Data->passwordadmin;
+    $conn = getDB();
+    $sql_query = "SELECT * FROM `admin_db` WHERE usernameadmin = '$UsernameAdmin' AND passwordadmin = '$PasswordAdmin'";
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->query($sql_query);
+    $rst = $conn->query($sql_query);
+    $Response_Data = $rst->fetchAll(PDO::FETCH_OBJ);
+    $Response_Data = json_encode($Response_Data);
+    echo $Response_Data;
+}
+
+
+function checkloginuser(){
+    $Data = json_decode($_POST['_Data']);
+    $UsernameAdmin = $Data->usernameadmin;
+    $PasswordAdmin = $Data->passwordadmin;
+    $conn = getDB();
+    $sql_query = "SELECT * FROM `user` WHERE username_user = '$UsernameAdmin' AND password_user = '$PasswordAdmin'";
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->query($sql_query);
+    $rst = $conn->query($sql_query);
+    $Response_Data = $rst->fetchAll(PDO::FETCH_OBJ);
+    $Response_Data = json_encode($Response_Data);
+    echo $Response_Data;
+}
+
+function checkloginuserHead(){
+    $Data = json_decode($_POST['_Data']);
+    $UsernameAdmin = $Data->usernameadmin;
+    $PasswordAdmin = $Data->passwordadmin;
+    $conn = getDB();
+    $sql_query = "SELECT * FROM `userhead` WHERE usernamehead = '$UsernameAdmin' AND passwordhead = '$PasswordAdmin'";
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->query($sql_query);
+    $rst = $conn->query($sql_query);
+    $Response_Data = $rst->fetchAll(PDO::FETCH_OBJ);
+    $Response_Data = json_encode($Response_Data);
+    echo $Response_Data;
 }
 
 

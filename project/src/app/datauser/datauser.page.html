@@ -6,12 +6,13 @@
 
 <ion-content>
 
-  <ion-card>
+  <ion-card text-center>
     <ion-row>
       <ion-col><label>ID</label></ion-col>
       <ion-col><label>NAME</label></ion-col>
       <ion-col><label>E-MAIL</label></ion-col>
       <ion-col><label>PHONE NUMBER</label></ion-col>
+      <ion-col><label>EDIT</label></ion-col>
 
     </ion-row>
 
@@ -21,7 +22,9 @@
       <ion-col><label>{{data.email_user}}</label></ion-col>
       <ion-col><label>{{data.tel_user}}</label></ion-col>
 
-
+      <ion-col>
+        <ion-button (click)="getidU(data.id_user)">Update </ion-button>
+    </ion-col>
 
     </ion-row>
 

@@ -24,6 +24,7 @@ export class UpdateadminPage implements OnInit {
   }
 
   ngOnInit() {
+    this.getbyidAdmin();
   }
 
   getbyidAdmin() {
@@ -44,10 +45,10 @@ export class UpdateadminPage implements OnInit {
     let dataFrom = new FormData();
     dataFrom.append("_Data", JSON.stringify(this.ans));
     dataFrom.append("Function_Name", "updateAdmin");
-    // console.log(this.ans);
+    console.log(this.ans);
     this.callapi.system_process_db(dataFrom).then((result) => {
       console.log(result);
-      this.router.navigate(['/home'])
+      this.router.navigate(['/dataadmin'])
     });
   }
 }

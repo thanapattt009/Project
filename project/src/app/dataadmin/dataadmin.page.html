@@ -6,13 +6,13 @@
 
 <ion-content>
 
-  <ion-card>
+  <ion-card text-center>
     <ion-row>
       <ion-col><label>ID</label></ion-col>
       <ion-col><label>NAME</label></ion-col>
       <ion-col><label>E-MAIL</label></ion-col>
       <ion-col><label>PHONE NUMBER</label></ion-col>
-
+      <ion-col><label>EDIT</label></ion-col>
     </ion-row>
 
     <ion-row *ngFor='let data of listadmin'>
@@ -20,11 +20,14 @@
       <ion-col><label>{{data.nameadmin}}</label></ion-col>
       <ion-col><label>{{data.emailadmin}}</label></ion-col>
       <ion-col><label>{{data.teladmin}}</label></ion-col>
-
-
-
+      <ion-col>
+        <ion-button (click)="getid(data.id_admin)">Update </ion-button>
+    </ion-col>
     </ion-row>
 
   </ion-card>
+
+
+ 
 
 </ion-content>
