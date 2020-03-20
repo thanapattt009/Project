@@ -9,6 +9,7 @@ import { ApiService } from '../api.service';
 })
 export class LoginPage implements OnInit {
 
+  listadmin;
 
   ans = {
     'id_admin': "", 'usernameadmin': "", 'passwordadmin': "", 'nameadmin': "", 'emailadmin': "", 'teladmin': ""
@@ -25,7 +26,11 @@ export class LoginPage implements OnInit {
 
 
   checklogin = {
-    'usernameadmin': "", 'passwordadmin': ""
+    'id_admin': "", 'passwordadmin': "" 
+  }
+
+  checklogin2 = {
+    'id_user': "", 'username_user': ""
   }
 
   constructor(public router: Router, public callapi: ApiService, public active: ActivatedRoute) { }
@@ -33,7 +38,8 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  checkloginadmin() {
+
+  checkloginadmin(id) {
     console.log(this.checklogin);
     let dataFrom = new FormData();
     dataFrom.append("_Data", JSON.stringify(this.checklogin));
@@ -44,13 +50,13 @@ export class LoginPage implements OnInit {
       console.log(this.ans);
       // this.callapi.userId = this.ans.id_admin;
       // console.log(this.ans.id_admin);
+
       if (Object.keys(result).length != 0) {
+        console.log(result);
+        this.router.navigate(['/profile' , { _id: id }]);
         console.log("adminlogin");
 
-        this.router.navigate(['/dataadmin'])
-
       }
-
     });
 
     console.log(this.checklogin);

@@ -47,19 +47,23 @@
 
 
     <ion-row>
-      <ion-col><label>USERNAME</label></ion-col>
+      <ion-col><label>ID</label></ion-col>
       <ion-col><label>PASSWORD</label></ion-col>
+      <ion-col><label>USERNAME</label></ion-col>
       <ion-col><label>NAME</label></ion-col>
       <ion-col><label>E-MAIL</label></ion-col>
       <ion-col><label>PHONE NUMBER</label></ion-col>
     </ion-row>
-
+    
     <ion-row>
       <ion-col>
-        <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="usernamehead"></ion-input>
+        <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="id_userhead"></ion-input>
       </ion-col>
       <ion-col>
         <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="passwordhead"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="usernamehead"></ion-input>
       </ion-col>
       <ion-col>
         <ion-input placeholder="กรุณากรอกข้อมูล" [(ngModel)]="namehead"></ion-input>

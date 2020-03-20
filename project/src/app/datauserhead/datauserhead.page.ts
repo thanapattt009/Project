@@ -8,7 +8,7 @@ import { ApiService } from '../api.service';
   styleUrls: ['./datauserhead.page.scss'],
 })
 export class DatauserheadPage implements OnInit {
-  listuser;
+  listuserhead;
 
   constructor(public router: Router, public callapi: ApiService, public active: ActivatedRoute) { }
 
@@ -23,9 +23,9 @@ export class DatauserheadPage implements OnInit {
     dataFrom.append("_Data", JSON.stringify(""));
     dataFrom.append("Function_Name", "getUserHeadAll");
     this.callapi.system_process_db(dataFrom).then((result) => {
-      this.listuser = result;
+      this.listuserhead = result;
       console.log(result);
-      console.log(this.listuser);
+      console.log(this.listuserhead);
 
     });
 

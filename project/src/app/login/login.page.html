@@ -9,7 +9,7 @@
   <ion-content padding>
 
     <ion-card text-center color="light">
-      <ion-input padding [(ngModel)]="checklogin.usernameadmin" placeholder="USERNAME"></ion-input>
+      <ion-input padding [(ngModel)]="checklogin.id_admin" placeholder="ID"></ion-input>
     </ion-card>
 
     <ion-card text-center color="light">
@@ -17,7 +17,7 @@
     </ion-card>
 
     <ion-title text-center>
-      <ion-button expand="small" color="light" (click)="checkloginadmin()">login</ion-button>
+      <ion-button expand="small" color="light" (click)="checkloginadmin(checklogin.id_admin)">login</ion-button>
       <ion-button expand="small" color="light" routerLink="/home">home</ion-button>
     </ion-title>
 

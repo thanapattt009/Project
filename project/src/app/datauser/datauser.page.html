@@ -9,7 +9,8 @@
   <ion-card text-center>
     <ion-row>
       <ion-col><label>ID</label></ion-col>
-      <ion-col><label>NAME</label></ion-col>
+      <ion-col><label>NAMEFULL</label></ion-col>
+      <ion-col><label>NICNAME</label></ion-col>
       <ion-col><label>E-MAIL</label></ion-col>
       <ion-col><label>PHONE NUMBER</label></ion-col>
       <ion-col><label>EDIT</label></ion-col>
@@ -18,6 +19,7 @@
 
     <ion-row *ngFor='let data of listuser'>
       <ion-col><label>{{data.id_user}}</label></ion-col>
+      <ion-col><label>{{data.username_user}}</label></ion-col>
       <ion-col><label>{{data.name_user}}</label></ion-col>
       <ion-col><label>{{data.email_user}}</label></ion-col>
       <ion-col><label>{{data.tel_user}}</label></ion-col>

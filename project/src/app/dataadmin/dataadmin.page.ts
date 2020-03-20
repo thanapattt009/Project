@@ -10,7 +10,9 @@ import { ApiService } from '../api.service';
 export class DataadminPage implements OnInit {
 
   listadmin;
-  listuser;
+
+
+
 
 
   constructor(public router: Router, public callapi: ApiService, public active: ActivatedRoute) { }
@@ -18,20 +20,21 @@ export class DataadminPage implements OnInit {
 
   ngOnInit() {
     // this.getAdminAll();
+    
 
   }
   ionViewWillEnter() {
-    this.getByIdAdmin();
+    this.getAdminAll();
   }
+
   getid(id) {
     this.router.navigate(['/updateadmin', { _id: id }]);
-
   }
 
-  getByIdAdmin() {
+  getAdminAll() {
     let dataFrom = new FormData();
     dataFrom.append("_Data", JSON.stringify(this.callapi.userId));
-    dataFrom.append("Function_Name", "getByIdAdmin");
+    dataFrom.append("Function_Name", "getAdminAll");
     this.callapi.system_process_db(dataFrom).then((result) => {
       this.listadmin = result;
       console.log(result);
@@ -40,8 +43,6 @@ export class DataadminPage implements OnInit {
     });
 
   }
-
-
 }
 
 

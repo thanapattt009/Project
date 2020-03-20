@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card text-left>
+    <ion-row>
+      <ion-label> คุณ</ion-label>
+    </ion-row>
+    <ion-row>
+      <ion-input disabled [(ngModel)]="ans.usernameadmin"></ion-input>
+      <ion-button (click)="getid(ans.id_admin)">edit </ion-button>
+
+    </ion-row>
+
+  </ion-card>
+
+  <ion-card text-center>
+    <ion-row>
+      <ion-col><label>USER</label></ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col><label>ข้อมูลผู้ใช้</label></ion-col>
+      <ion-col><label>เพิ่มผู้ใช้</label></ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button routerLink="/datauser">see</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button routerLink="/registeruser">add</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+</ion-content>

@@ -8,8 +8,8 @@ import { ApiService } from '../api.service';
   styleUrls: ['./datauser.page.scss'],
 })
 export class DatauserPage implements OnInit {
-  listUser;
   listuser;
+
 
   constructor(public router: Router, public callapi: ApiService, public active: ActivatedRoute) { }
 
@@ -18,23 +18,26 @@ export class DatauserPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    this.getByIdUser();
+    this.getUserAll();
   }
   getidU(id) {
     this.router.navigate(['/updateuser', { _id: id }]);
   }
 
-  getByIdUser() {
+  getUserAll() {
     let dataFrom = new FormData();
-    dataFrom.append("_Data", JSON.stringify(this.callapi.userId));
-    dataFrom.append("Function_Name", "getByIdUser");
+    dataFrom.append("_Data", JSON.stringify(""));
+    dataFrom.append("Function_Name", "getUserAll");
     this.callapi.system_process_db(dataFrom).then((result) => {
-      this.listUser = result;
+      this.listuser = result;
       console.log(result);
-      console.log(this.listUser);
+      console.log(this.listuser);
 
     });
 
+    
+
   }
+  
 
 }

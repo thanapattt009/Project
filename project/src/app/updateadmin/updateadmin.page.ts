@@ -10,16 +10,14 @@ import { ApiService } from '../api.service';
 export class UpdateadminPage implements OnInit {
 
 
-  id = {
-    'id_admin': null
-  };
+
   ans = {
     'id_admin': "", 'usernameadmin': "", 'passwordadmin': "", 'nameadmin': "", 'emailadmin': "", 'teladmin': ""
   }
 
   constructor(public router: Router, public callapi: ApiService, public active: ActivatedRoute) { 
-    this.id.id_admin = this.active.snapshot.paramMap.get('_id');
-    console.log(this.id);
+    this.ans.id_admin = this.active.snapshot.paramMap.get('_id');
+    console.log(this.ans);
     this.getbyidAdmin();
   }
 
@@ -29,7 +27,7 @@ export class UpdateadminPage implements OnInit {
 
   getbyidAdmin() {
     let dataFrom = new FormData();
-    dataFrom.append("_Data", JSON.stringify(this.id));
+    dataFrom.append("_Data", JSON.stringify(this.ans));
     dataFrom.append("Function_Name", "getByIdAdmin");
     this.callapi.system_process_db(dataFrom).then((result) => {
       this.ans = result[0];
@@ -40,7 +38,7 @@ export class UpdateadminPage implements OnInit {
   updateAdmin(id) {
     this.ans.id_admin = id;
     console.log(this.ans);
-    console.log(this.id);
+
 
     let dataFrom = new FormData();
     dataFrom.append("_Data", JSON.stringify(this.ans));
@@ -48,7 +46,7 @@ export class UpdateadminPage implements OnInit {
     console.log(this.ans);
     this.callapi.system_process_db(dataFrom).then((result) => {
       console.log(result);
-      this.router.navigate(['/dataadmin'])
+      this.router.navigate(['/dataadmin' , { _id: id }]);
     });
   }
 }
