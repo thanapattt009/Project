@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>datapass</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+
+
+
+    <ion-list>
+      <ion-radio-group [(ngModel)]="xxx">
+        <ion-list-header>
+          <ion-label>ช่วงเวลา</ion-label>
+        </ion-list-header>
+        <ion-row>
+          <ion-item>
+            <ion-label>เช้า</ion-label>
+            <ion-radio slot="start" value="morning" ></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>บ่าย</ion-label>
+            <ion-radio slot="start" value="afternoon"  ></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>ดึก</ion-label>
+            <ion-radio slot="start" value="late" ></ion-radio>
+          </ion-item>
+        </ion-row>
+      </ion-radio-group>
+    </ion-list>
+
+    <ion-row>
+      <ion-col><label>1: Resuscitation (เจ็บป่วยรุนแรง)</label></ion-col>
+      <ion-input placeholder="จำนวนผู้ป่วย" [(ngModel)]="resuscitation"></ion-input>
+    </ion-row>
+    <ion-row>
+      <ion-col><label>2: Emergent (เจ็บป่วยรุนแรง)</label></ion-col>
+      <ion-input placeholder="จำนวนผู้ป่วย" [(ngModel)]="emergent"></ion-input>
+    </ion-row>
+
+    <ion-row>
+      <ion-col><label>3: Urgent (เจ็บป่วยปานกลาง)</label> </ion-col>
+      <ion-input placeholder="จำนวนผู้ป่วย" [(ngModel)]="urgent"></ion-input>
+    </ion-row>
+
+    <ion-row>
+      <ion-col><label>4: Less-Urgent (เจ็บป่วยเล็กน้อย)</label></ion-col>
+      <ion-input placeholder="จำนวนผู้ป่วย" [(ngModel)]="less_urgent"></ion-input>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col><label>5: Non-Urgent (เจ็บป่วยทั่วไป)</label></ion-col>
+      <ion-input placeholder="จำนวนผู้ป่วย" [(ngModel)]="non_urgent"></ion-input>
+    </ion-row>
+
+
+
+    <ion-row text-center>
+      <ion-button color="dark" (click)="addbutton(xxx)">add</ion-button>
+    </ion-row>
+
+  </ion-card>
+</ion-content>

@@ -207,7 +207,7 @@ function checkloginadmin(){
     // $UsernameAdmin = $Data->usernameadmin;
     $PasswordAdmin = $Data->passwordadmin;
     $conn = getDB();
-    $sql_query = "SELECT * FROM `admin_db` WHERE id_admin = '$IdAdmin' AND passwordadmin = '$PasswordAdmin' ";
+    $sql_query = "SELECT * FROM `admin_db` WHERE usernameadmin = '$IdAdmin' AND passwordadmin = '$PasswordAdmin' ";
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->query($sql_query);
     $rst = $conn->query($sql_query);
@@ -219,10 +219,10 @@ function checkloginadmin(){
 
 function checkloginuser(){
     $Data = json_decode($_POST['_Data']);
-    $UsernameAdmin = $Data->usernameadmin;
+    $UsernameAdmin = $Data->id_admin;
     $PasswordAdmin = $Data->passwordadmin;
     $conn = getDB();
-    $sql_query = "SELECT * FROM `user` WHERE id_user='$IdUser' AND password_user = '$PasswordAdmin'";
+    $sql_query = "SELECT * FROM `user` WHERE username_user='$UsernameAdmin' AND password_user = '$PasswordAdmin'";
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->query($sql_query);
     $rst = $conn->query($sql_query);
@@ -233,16 +233,62 @@ function checkloginuser(){
 
 function checkloginuserHead(){
     $Data = json_decode($_POST['_Data']);
-    $UsernameAdmin = $Data->usernameadmin;
+    $UsernameAdmin = $Data->id_admin;
     $PasswordAdmin = $Data->passwordadmin;
     $conn = getDB();
-    $sql_query = "SELECT * FROM `userhead` WHERE id_userhead='$IdUserHead' AND passwordhead = '$PasswordAdmin'";
+    $sql_query = "SELECT * FROM `userhead` WHERE usernamehead='$UsernameAdmin' AND passwordhead = '$PasswordAdmin'";
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->query($sql_query);
     $rst = $conn->query($sql_query);
     $Response_Data = $rst->fetchAll(PDO::FETCH_OBJ);
     $Response_Data = json_encode($Response_Data);
     echo $Response_Data;
+}
+/////////////////////////////// datapass////////////////
+
+function addmorning(){
+    $Data = json_decode($_POST['_Data']);
+    $Id_morning = $Data->id_morning;
+    $Resuscitation = $Data->resuscitation;
+    $Emergent = $Data->emergent;
+    $Urgent = $Data->urgent;
+    $Less_urgent = $Data->less_urgent;
+    $Non_urgent = $Data->non_urgent;
+    $conn = getDB();
+    $sql_query = "INSERT INTO morning (id_morning,resuscitation,emergent,urgent,less_urgent,non_urgent) VALUES ('$Id_morning','$Resuscitation','$Emergent','$Urgent','$Less_urgent','$Non_urgent')";
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->query($sql_query);
+
+}
+
+function addafternoon(){
+    $Data = json_decode($_POST['_Data']);
+    $Id_afternoon = $Data->id_afternoon;
+    $Resuscitation = $Data->resuscitation;
+    $Emergent = $Data->emergent;
+    $Urgent = $Data->urgent;
+    $Less_urgent = $Data->less_urgent;
+    $Non_urgent = $Data->non_urgent;
+    $conn = getDB();
+    $sql_query = "INSERT INTO afternoon (id_afternoon,resuscitation,emergent,urgent,less_urgent,non_urgent) VALUES ('$Id_afternoon','$Resuscitation','$Emergent','$Urgent','$Less_urgent','$Non_urgent')";
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->query($sql_query);
+
+}
+
+function addlate(){
+    $Data = json_decode($_POST['_Data']);
+    $Id_late = $Data->id_late;
+    $Resuscitation = $Data->resuscitation;
+    $Emergent = $Data->emergent;
+    $Urgent = $Data->urgent;
+    $Less_urgent = $Data->less_urgent;
+    $Non_urgent = $Data->non_urgent;
+    $conn = getDB();
+    $sql_query = "INSERT INTO late (id_late,resuscitation,emergent,urgent,less_urgent,non_urgent) VALUES ('$Id_late','$Resuscitation','$Emergent','$Urgent','$Less_urgent','$Non_urgent')";
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->query($sql_query);
+
 }
 
 

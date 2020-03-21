@@ -57,6 +57,10 @@ const routes: Routes = [
   },  {
     path: 'updateuserhead2',
     loadChildren: () => import('./updateuserhead2/updateuserhead2.module').then( m => m.Updateuserhead2PageModule)
+  },
+  {
+    path: 'datapass',
+    loadChildren: () => import('./datapass/datapass.module').then( m => m.DatapassPageModule)
   }
 
 
