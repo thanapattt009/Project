@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>updateuserhead2</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-content>
+    <ion-item>
+      <ion-label position="stacked"> ID</ion-label>
+      <ion-input type="text" fill="outline" disabled [(ngModel)]="ans.id_userhead"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">PASSWORD</ion-label>
+      <ion-input type="text" fill="outline" [(ngModel)]="ans.passwordhead"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">NAMEFULL</ion-label>
+      <ion-input type="text" fill="outline" [(ngModel)]="ans.usernamehead"></ion-input>
+    </ion-item>
+  
+   
+    <ion-item>
+      <ion-label position="stacked">NICNAME</ion-label>
+      <ion-input type="text" fill="outline" [(ngModel)]="ans.namehead"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">EMAIL</ion-label>
+      <ion-input type="text" fill="outline" [(ngModel)]="ans.emailhead"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">Tel</ion-label>
+      <ion-input type="text" fill="outline" [(ngModel)]="ans.telhead"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-button (click)="updateUserHead(ans.id_userhead)">Update</ion-button>
+    </ion-item>
+</ion-content>

@@ -17,14 +17,14 @@ export class UpdateuserPage implements OnInit {
   constructor(public router: Router, public callapi: ApiService, public active: ActivatedRoute) { 
     this.ans.id_user = this.active.snapshot.paramMap.get('_id');
     console.log(this.ans);
-    this.getbyidUser();
+    this.getByIdUser();
   }
 
   ngOnInit() {
-    this.getbyidUser();
+    this.getByIdUser();
   }
 
-  getbyidUser() {
+  getByIdUser() {
     let dataFrom = new FormData();
     dataFrom.append("_Data", JSON.stringify(this.ans));
     dataFrom.append("Function_Name", "getByIdUser");

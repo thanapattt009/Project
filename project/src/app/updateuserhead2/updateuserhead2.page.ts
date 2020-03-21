@@ -3,12 +3,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
 
 @Component({
-  selector: 'app-updateuserhead',
-  templateUrl: './updateuserhead.page.html',
-  styleUrls: ['./updateuserhead.page.scss'],
+  selector: 'app-updateuserhead2',
+  templateUrl: './updateuserhead2.page.html',
+  styleUrls: ['./updateuserhead2.page.scss'],
 })
-export class UpdateuserheadPage implements OnInit {
-
+export class Updateuserhead2Page implements OnInit {
   ans = {
     'id_userhead': "", 'usernamehead': "", 'passwordhead': "", 'namehead': "", 'emailhead': "", 'telhead': ""
   }

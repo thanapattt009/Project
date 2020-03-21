@@ -34,8 +34,9 @@ export class RegisteruserPage implements OnInit {
     dataFrom.append("_Data", JSON.stringify(this.data));
     dataFrom.append("Function_Name", "addUser");
     this.callapi.system_process_db(dataFrom).then((result) => {
-      console.log(result);
-      this.router.navigate(['/home'])
+   
+      console.log("success");
+      
     });
   }
 }

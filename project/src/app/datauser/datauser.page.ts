@@ -8,8 +8,13 @@ import { ApiService } from '../api.service';
   styleUrls: ['./datauser.page.scss'],
 })
 export class DatauserPage implements OnInit {
+
   listuser;
 
+  
+  ans = {
+    'id_user': "", 'username_user': "", 'password_user': "", 'name_user': "", 'email_user': "", 'tel_user': ""
+  }
 
   constructor(public router: Router, public callapi: ApiService, public active: ActivatedRoute) { }
 
@@ -20,13 +25,13 @@ export class DatauserPage implements OnInit {
   ionViewWillEnter() {
     this.getUserAll();
   }
-  getidU(id) {
-    this.router.navigate(['/updateuser', { _id: id }]);
+  getiduser(id) {
+    this.router.navigate(['/updateuser2', { _id: id }]);
   }
 
   getUserAll() {
     let dataFrom = new FormData();
-    dataFrom.append("_Data", JSON.stringify(""));
+    dataFrom.append("_Data", JSON.stringify(this.ans));
     dataFrom.append("Function_Name", "getUserAll");
     this.callapi.system_process_db(dataFrom).then((result) => {
       this.listuser = result;
@@ -35,9 +40,16 @@ export class DatauserPage implements OnInit {
 
     });
 
-    
-
   }
-  
 
+  deleteUser(id) {
+    this.ans.id_user = id;
+    let dataFrom = new FormData();
+    dataFrom.append("_Data", JSON.stringify(this.ans));
+    dataFrom.append("Function_Name", "deleteUser");
+    this.callapi.system_process_db(dataFrom).then((result) => {
+      this.router.navigate(['/datauser']);
+      this.getUserAll();
+    });
+  }
 }

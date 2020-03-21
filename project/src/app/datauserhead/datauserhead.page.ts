@@ -8,7 +8,11 @@ import { ApiService } from '../api.service';
   styleUrls: ['./datauserhead.page.scss'],
 })
 export class DatauserheadPage implements OnInit {
+  
   listuserhead;
+
+  ans = { "id_userhead": "", "usernamehead": "", "passwordhead": "", "namehead": "", "emailhead": "", "telhead": "" };
+ 
 
   constructor(public router: Router, public callapi: ApiService, public active: ActivatedRoute) { }
 
@@ -16,7 +20,7 @@ export class DatauserheadPage implements OnInit {
     this.getUserHeadAll();
   }
   getidH(id) {
-    this.router.navigate(['/updateuserhead', { _id: id }]);
+    this.router.navigate(['/updateuserhead2', { _id: id }]);
   }
   getUserHeadAll() {
     let dataFrom = new FormData();
@@ -29,6 +33,16 @@ export class DatauserheadPage implements OnInit {
 
     });
 
+  }
+  deleteUserHead(id) {
+    this.ans.id_userhead = id;
+    let dataFrom = new FormData();
+    dataFrom.append("_Data", JSON.stringify(this.ans));
+    dataFrom.append("Function_Name", "deleteUserHead");
+    this.callapi.system_process_db(dataFrom).then((result) => {
+      this.router.navigate(['/datauserhead']);
+      this.getUserHeadAll();
+    });
   }
 
 }

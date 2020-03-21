@@ -35,8 +35,11 @@ export class RegisteruserheadPage implements OnInit {
     dataFrom.append("_Data", JSON.stringify(this.data));
     dataFrom.append("Function_Name", "addUserHead");
     this.callapi.system_process_db(dataFrom).then((result) => {
-      console.log(result);
-      this.router.navigate(['/home'])
+  
+      console.log("success");
+      
     });
   }
+
+
 }

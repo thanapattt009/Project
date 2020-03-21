@@ -14,6 +14,7 @@
       <ion-col><label>E-MAIL</label></ion-col>
       <ion-col><label>PHONE NUMBER</label></ion-col>
       <ion-col><label>EDIT</label></ion-col>
+      
     </ion-row>
 
     <ion-row *ngFor='let data of listadmin'>
@@ -25,6 +26,7 @@
       <ion-col>
         <ion-button (click)="getid(data.id_admin)">Update </ion-button>
       </ion-col>
+  
     </ion-row>
 
   </ion-card>

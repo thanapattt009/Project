@@ -11,17 +11,11 @@ export class DataadminPage implements OnInit {
 
   listadmin;
 
-
-
-
-
   constructor(public router: Router, public callapi: ApiService, public active: ActivatedRoute) { }
 
 
   ngOnInit() {
     // this.getAdminAll();
-    
-
   }
   ionViewWillEnter() {
     this.getAdminAll();

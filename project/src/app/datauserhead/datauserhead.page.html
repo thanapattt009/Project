@@ -15,6 +15,7 @@
       <ion-col><label>E-MAIL</label></ion-col>
       <ion-col><label>PHONE NUMBER</label></ion-col>
       <ion-col><label>EDIT</label></ion-col>
+      <ion-col><label>DELETE</label></ion-col>
     </ion-row>
 
     <ion-row *ngFor='let data of listuserhead'>
@@ -23,9 +24,11 @@
       <ion-col><label>{{data.namehead}}</label></ion-col>
       <ion-col><label>{{data.emailhead}}</label></ion-col>
       <ion-col><label>{{data.telhead}}</label></ion-col>
-
       <ion-col>
         <ion-button (click)="getidH(data.id_userhead)">Update </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button (click)="deleteUserHead(data.id_userhead)">DELETE </ion-button>
     </ion-col>
 
     </ion-row>

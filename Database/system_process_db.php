@@ -141,8 +141,7 @@ function updateAdmin(){
     $EmailAdmin = $Data->emailadmin;
     $TelAdmin = $Data->teladmin;
     $conn = getDB();
-   $sql_query ="UPDATE admin_db SET  passwordadmin = '$PasswordAdmin',usernameadmin = '$UsernameAdmin', nameadmin= '$NameAdmin', emailadmin = '$EmailAdmin', teladmin = '$TelAdmin' WHERE id_admin = '$IdAdmin'";
-    // $sql_query = "UPDATE admin_db set usernameadmin='$UsernameAdmin',passwordaddmin='$PasswordAdmin',nameadmin='$NameAdmin',emailadmin='$EmailAdmin',teladmin='$TelAdmin' WHERE id_admin='$IdAdmin'";
+    $sql_query ="UPDATE admin_db SET  passwordadmin = '$PasswordAdmin', usernameadmin = '$UsernameAdmin', nameadmin = '$NameAdmin', emailadmin = '$EmailAdmin', teladmin = '$TelAdmin' WHERE id_admin = '$IdAdmin'";
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->query($sql_query);
     echo '{"Finish":"update"}';
@@ -157,7 +156,7 @@ function updateUser(){
     $EmailUser = $Data->email_user;
     $TelUser = $Data->tel_user;
     $conn = getDB();
-    $sql_query = "UPDATE user set password_user = '$PasswordUser', username_user = '$UsernameUser', name_user = '$NameUser', email_user = '$EmailUser', tel_user = '$TelUser' WHERE id_user = '$IdUser'";
+    $sql_query = "UPDATE user SET password_user = '$PasswordUser', username_user = '$UsernameUser', name_user = '$NameUser', email_user = '$EmailUser', tel_user = '$TelUser' WHERE id_user = '$IdUser'";
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->query($sql_query);
     echo '{"Finish":"update"}';
