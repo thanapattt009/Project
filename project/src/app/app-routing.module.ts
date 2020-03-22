@@ -61,6 +61,10 @@ const routes: Routes = [
   {
     path: 'datapass',
     loadChildren: () => import('./datapass/datapass.module').then( m => m.DatapassPageModule)
+  },
+  {
+    path: 'timetable',
+    loadChildren: () => import('./timetable/timetable.module').then( m => m.TimetablePageModule)
   }
 
 
