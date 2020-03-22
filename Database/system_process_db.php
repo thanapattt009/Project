@@ -288,9 +288,42 @@ function addlate(){
     $sql_query = "INSERT INTO late (id_late,resuscitation,emergent,urgent,less_urgent,non_urgent) VALUES ('$Id_late','$Resuscitation','$Emergent','$Urgent','$Less_urgent','$Non_urgent')";
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->query($sql_query);
-
+}
+function getAllmorning(){
+    $Data = json_decode($_POST['_Data']);
+    $conn = getDB();
+    $sql_query = "SELECT * from morning";
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->query($sql_query);
+    $rst = $conn->query($sql_query);
+    $Response_Data = $rst->fetchAll(PDO::FETCH_OBJ);
+    $Response_Data = json_encode($Response_Data);
+    echo $Response_Data;
 }
 
+function getAllafternoon(){
+    $Data = json_decode($_POST['_Data']);
+    $conn = getDB();
+    $sql_query = "SELECT * from afternoon";
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->query($sql_query);
+    $rst = $conn->query($sql_query);
+    $Response_Data = $rst->fetchAll(PDO::FETCH_OBJ);
+    $Response_Data = json_encode($Response_Data);
+    echo $Response_Data;
+}
+
+function getAlllate(){
+    $Data = json_decode($_POST['_Data']);
+    $conn = getDB();
+    $sql_query = "SELECT * from late";
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->query($sql_query);
+    $rst = $conn->query($sql_query);
+    $Response_Data = $rst->fetchAll(PDO::FETCH_OBJ);
+    $Response_Data = json_encode($Response_Data);
+    echo $Response_Data;
+}
 
 
 ?>
