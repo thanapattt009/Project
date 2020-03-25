@@ -37,6 +37,8 @@ export class DataadminPage implements OnInit {
     });
 
   }
+  
+
 }
 
 

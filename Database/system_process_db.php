@@ -1,8 +1,8 @@
 <?php
+include 'config.php';
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
-include 'config.php';
 
 $_POST['Function_Name']();
 ///////////////////////////////////////////// add +++++++++++++++++++++++++++++
@@ -254,8 +254,11 @@ function addmorning(){
     $Urgent = $Data->urgent;
     $Less_urgent = $Data->less_urgent;
     $Non_urgent = $Data->non_urgent;
+
+    $Sum1 =  $Resuscitation + $Resuscitation;
+
     $conn = getDB();
-    $sql_query = "INSERT INTO morning (id_morning,resuscitation,emergent,urgent,less_urgent,non_urgent) VALUES ('$Id_morning','$Resuscitation','$Emergent','$Urgent','$Less_urgent','$Non_urgent')";
+    $sql_query = "INSERT INTO morning (id_morning,resuscitation,emergent,urgent,less_urgent,non_urgent) VALUES ('$Id_morning','$Resuscitation','$Emergent','$Urgent','$Less_urgent','$Non_urgent', '$Sum1')";
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->query($sql_query);
 
@@ -289,10 +292,13 @@ function addlate(){
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->query($sql_query);
 }
-function getAllmorning(){
+
+
+
+function getAlltimework(){
     $Data = json_decode($_POST['_Data']);
     $conn = getDB();
-    $sql_query = "SELECT * from morning";
+    $sql_query = "SELECT * from timework";
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->query($sql_query);
     $rst = $conn->query($sql_query);
@@ -301,10 +307,20 @@ function getAllmorning(){
     echo $Response_Data;
 }
 
-function getAllafternoon(){
+
+
+//////////////////////////////////////////////////////// sum
+function checkAllSelect(){
     $Data = json_decode($_POST['_Data']);
+    $datenow = $Data->date_time;
+    $timestatus = $Data->statustime;
+    $resuscitation = $Data->resuscitation;
+    $emergent = $Data->emergent;
+    $urgent = $Data->urgent;
+    $less_urgent = $Data->less_urgent;
+    $non_urgent = $Data->non_urgent;
     $conn = getDB();
-    $sql_query = "SELECT * from afternoon";
+    $sql_query = "SELECT * FROM `timework` WHERE  date_time = '$datenow' AND statustime = '$timestatus'";
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->query($sql_query);
     $rst = $conn->query($sql_query);
@@ -313,16 +329,65 @@ function getAllafternoon(){
     echo $Response_Data;
 }
 
-function getAlllate(){
+function Updatetimework(){
     $Data = json_decode($_POST['_Data']);
+    $Id_timework = $Data->id_timework;
+    $datenow = $Data->date_time;
+    $timestatus = $Data->statustime;
+    $resuscitation = $Data->resuscitation;
+    $emergent = $Data->emergent;
+    $urgent = $Data->urgent;
+    $less_urgent = $Data->less_urgent;
+    $non_urgent = $Data->non_urgent;
     $conn = getDB();
-    $sql_query = "SELECT * from late";
+    $sql_query = "UPDATE timework SET resuscitation ='$resuscitation', emergent='$emergent',urgent='$urgent',less_urgent='$less_urgent', non_urgent='$non_urgent'  WHERE id_timework='$Id_timework' ";
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->query($sql_query);
-    $rst = $conn->query($sql_query);
-    $Response_Data = $rst->fetchAll(PDO::FETCH_OBJ);
-    $Response_Data = json_encode($Response_Data);
-    echo $Response_Data;
+    echo '{"Finish":"update"}';
+}
+
+
+
+//////////////////////// insert
+
+function AddtimeWork(){
+    $Data = json_decode($_POST['_Data']);
+    $Id_timework = $Data->id_timework;
+    $datenow = $Data->date_time;
+    $timestatus = $Data->statustime;
+    $resuscitation = $Data->resuscitation;
+    $emergent = $Data->emergent;
+    $urgent = $Data->urgent;
+    $less_urgent = $Data->less_urgent;
+    $non_urgent = $Data->non_urgent;
+    $conn = getDB();
+    $sql_query = "INSERT INTO timework (id_timework,resuscitation,emergent,urgent,less_urgent,non_urgent,date_time,statustime) VALUES ('$Id_timework','$resuscitation','$emergent','$urgent','$less_urgent','$non_urgent','$datenow','$timestatus')";
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->query($sql_query);
+ 
+}
+
+/////////////////////////////////////////////////// ตัวคูณ
+
+function addByTimework(){
+    $Data = json_decode($_POST['_Data']);
+    $IdTimework = $Data->id_timework;
+    $Resuscitation = $Data->resuscitation;
+    $Emergent = $Data->emergent;
+    $Urgent = $Data->urgent; 
+    $Less_urgent = $Data->less_urgent;
+    $Non_urgent = $Data->non_urgent;
+    $Date = $Data->date;
+    $Statustime = $Data->statustime;
+    
+    $SumProduct =  $PriceProduct + $CountProduct;
+    $conn = getDB();
+    $sql_query = "INSERT INTO timework (by_name_Product,by_type_Product,by_price_Product,count_Product,sum_Product) VALUES ('$NameProduct','$TypeProduct','$PriceProduct','$CountProduct','$SumProduct')";
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->query($sql_query);
+    $Response_Data= $rst->fetchAll(PDO::FETCH_NUM);
+    echo $Response_Data; 
+   
 }
 
 
