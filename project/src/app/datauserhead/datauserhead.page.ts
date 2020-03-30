@@ -10,10 +10,7 @@ import { ApiService } from '../api.service';
 export class DatauserheadPage implements OnInit {
   
   listuserhead;
-
   ans = { "id_userhead": "", "usernamehead": "", "passwordhead": "", "namehead": "", "emailhead": "", "telhead": "" };
- 
-
   constructor(public router: Router, public callapi: ApiService, public active: ActivatedRoute) { }
 
   ngOnInit() {
@@ -30,9 +27,7 @@ export class DatauserheadPage implements OnInit {
       this.listuserhead = result;
       console.log(result);
       console.log(this.listuserhead);
-
     });
-
   }
   deleteUserHead(id) {
     this.ans.id_userhead = id;
@@ -44,5 +39,4 @@ export class DatauserheadPage implements OnInit {
       this.getUserHeadAll();
     });
   }
-
 }

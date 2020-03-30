@@ -8,23 +8,17 @@ import { ApiService } from '../api.service';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-
-  
-
   ans = {
     'id_admin': "", 'usernameadmin': "", 'passwordadmin': "", 'nameadmin': "", 'emailadmin': "", 'teladmin': ""
   }
-
   constructor(public router: Router, public callapi: ApiService, public active: ActivatedRoute) { 
     this.ans.id_admin = this.active.snapshot.paramMap.get('_id');
     console.log(this.ans);
     this.getbyidAdmin();
   }
-
   ngOnInit() {
     this.getbyidAdmin();
   }
-
   getbyidAdmin() {
     let dataFrom = new FormData();
     dataFrom.append("_Data", JSON.stringify(this.ans));

@@ -9,8 +9,6 @@ import { ApiService } from '../api.service';
 })
 export class RegisteruserPage implements OnInit {
 
-
-
   constructor(public router: Router, public callapi: ApiService) { }
 
   ngOnInit() {
@@ -21,7 +19,6 @@ export class RegisteruserPage implements OnInit {
   name_user: string;
   email_user: string;
   tel_user: string;
-
   data = { "id_user": "", "username_user": "", "password_user": "", "name_user": "", "email_user": "", "tel_user": "" };
   addUser() {
     this.data.id_user = this.id_user;
@@ -34,9 +31,7 @@ export class RegisteruserPage implements OnInit {
     dataFrom.append("_Data", JSON.stringify(this.data));
     dataFrom.append("Function_Name", "addUser");
     this.callapi.system_process_db(dataFrom).then((result) => {
-   
       console.log("success");
-      
     });
   }
 }

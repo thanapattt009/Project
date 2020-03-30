@@ -92,7 +92,7 @@ export class LoginPage implements OnInit {
               this.ans3 = result[0]
               console.log(this.ans3);
               if (this.ans3 != null) {
-                this.router.navigate(['/dataadmin'])
+                this.router.navigate(['/datauserhead'])
 
               }
               // console.log(this.checklogin);

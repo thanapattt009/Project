@@ -41,7 +41,6 @@ export class ListPage implements OnInit {
 
   ionViewWillEnter() {
     this.getAlltimework();
-
   }
   // add back when alpha.4 is out
   // navigate(item) {
@@ -55,9 +54,6 @@ export class ListPage implements OnInit {
       this.listtimework = result;
       console.log(result);
       console.log(this.listtimework);
-
     });
-
   }
-
 }

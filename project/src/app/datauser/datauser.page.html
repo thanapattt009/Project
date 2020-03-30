@@ -15,6 +15,7 @@
       <ion-col><label>PHONE NUMBER</label></ion-col>
       <ion-col><label>EDIT</label></ion-col>
       <ion-col><label>DELETE</label></ion-col>
+
     </ion-row>
 
     <ion-row *ngFor='let data of listuser'>
@@ -30,8 +31,21 @@
         <ion-button (click)="deleteUser(data.id_user)">DELETE </ion-button>
       </ion-col>
 
+   
+
 
     </ion-row>
 
   </ion-card>
+<ion-card>
+  <ion-col>
+    <ion-button routerLink="/datapass">เพิ่มข้อมูลภาระงาน</ion-button>
+  </ion-col>
+  <ion-col>
+    <ion-button routerLink="/list">ดูตารางภาระงาน</ion-button>
+  </ion-col>
+<ion-col>
+  <ion-button routerLink="/timetable">ตารางปฏิบัติงาน</ion-button>
+</ion-col>
+</ion-card>
 </ion-content>

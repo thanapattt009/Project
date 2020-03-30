@@ -9,8 +9,8 @@ import { ApiService } from '../api.service';
 })
 export class DatauserPage implements OnInit {
 
-  listuser;
 
+  listuser;
   
   ans = {
     'id_user': "", 'username_user': "", 'password_user': "", 'name_user': "", 'email_user': "", 'tel_user': ""
@@ -21,14 +21,12 @@ export class DatauserPage implements OnInit {
   ngOnInit() {
     // this.getUserAll();
   }
-
   ionViewWillEnter() {
     this.getUserAll();
   }
   getiduser(id) {
     this.router.navigate(['/updateuser2', { _id: id }]);
   }
-
   getUserAll() {
     let dataFrom = new FormData();
     dataFrom.append("_Data", JSON.stringify(this.ans));
@@ -37,11 +35,8 @@ export class DatauserPage implements OnInit {
       this.listuser = result;
       console.log(result);
       console.log(this.listuser);
-
     });
-
   }
-
   deleteUser(id) {
     this.ans.id_user = id;
     let dataFrom = new FormData();

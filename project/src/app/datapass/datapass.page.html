@@ -18,17 +18,17 @@
         <ion-row>
           <ion-item>
             <ion-label>เช้า</ion-label>
-            <ion-radio slot="start" value="morning"></ion-radio>
+            <ion-radio slot="start" value="เช้า"></ion-radio>
           </ion-item>
 
           <ion-item>
             <ion-label>บ่าย</ion-label>
-            <ion-radio slot="start" value="afternoon"></ion-radio>
+            <ion-radio slot="start" value="บ่าย"></ion-radio>
           </ion-item>
 
           <ion-item>
             <ion-label>ดึก</ion-label>
-            <ion-radio slot="start" value="late"></ion-radio>
+            <ion-radio slot="start" value="ดึก"></ion-radio>
           </ion-item>
         </ion-row>
       </ion-radio-group>
@@ -68,7 +68,8 @@
 
 
     <ion-row text-center>
-      <ion-button color="dark" (click)="addbutton()">add</ion-button>
+      <ion-button (click)="addbutton()">add</ion-button>
+      <ion-button (click)="getList()">data list</ion-button>
     </ion-row>
 
   </ion-card>
